@@ -1,0 +1,126 @@
+/* =========================
+   INSTAGRAM FEED SECTION
+========================= */
+
+.ig-header {
+  text-align: left;
+}
+
+.ig-header h2 {
+  margin-bottom: 12px;
+}
+
+.ig-header p {
+  font-size: 1.05rem;
+}
+
+/* ── Track wrapper ── */
+.ig-track-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Desktop: 4-column grid ── */
+.ig-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+}
+
+/* ── Post card ── */
+.ig-post {
+  padding: 0;
+  overflow: hidden;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: .25s;
+}
+
+.ig-post:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px rgba(90,171,222,.12);
+}
+
+.ig-post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.ig-post:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Dot indicators (mobile only) ── */
+.ig-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.ig-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: background .2s;
+}
+
+.ig-dot--active {
+  background: var(--accent);
+}
+
+/* ── CTA ── */
+.ig-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+/* ── Mobile: draggable carousel ── */
+@media (max-width: 900px) {
+  .ig-track-wrap {
+    margin: 0 -30px;
+    padding: 0 30px;
+    cursor: grab;
+  }
+
+  .ig-track-wrap:active {
+    cursor: grabbing;
+  }
+
+  .ig-track {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    transition: transform .35s cubic-bezier(.25, .46, .45, .94);
+    will-change: transform;
+  }
+
+  .ig-post {
+    flex: 0 0 80vw;
+    max-width: 400px;
+  }
+
+  .ig-dots {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .ig-post {
+    flex: 0 0 88vw;
+  }
+}
